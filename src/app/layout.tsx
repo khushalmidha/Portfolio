@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { profile } from "@/lib/content/profile";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://khushalmidha.dev"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://khushalmidha.tech"),
   title: {
     default: `${profile.name} — Software Engineer`,
     template: `%s | ${profile.name}`,
