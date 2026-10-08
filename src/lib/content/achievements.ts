@@ -13,6 +13,8 @@ export type Achievement = {
   scale?: string;
   certificateNote?: string;
   verifiedBy: "certificate" | "resume" | "resume-note";
+  certificateUrl?: string;
+  proofUrl?: string;
 };
 
 export const achievements: Achievement[] = [
@@ -28,6 +30,8 @@ export const achievements: Achievement[] = [
     certificateNote:
       "Certificate confirms progression: Practice 857th → Round 1 342nd → Round 2 245th → Round 3 186th",
     verifiedBy: "certificate",
+    certificateUrl: "/certificates/meta-hacker-cup-2025.png",
+    proofUrl: "https://drive.google.com/file/d/1_NaRLSRc_Up69mdPD2T93Fm0R_jqc8j2/view?usp=sharing",
   },
   {
     id: "amazon-ml-school-2025",
@@ -41,6 +45,8 @@ export const achievements: Achievement[] = [
     certificateNote:
       "Letter of Acknowledgement dated September 10, 2025. Program ran Aug 9–31, 2025.",
     verifiedBy: "certificate",
+    certificateUrl: "/certificates/amazon-ml-school-2025.png",
+    proofUrl: "https://drive.google.com/file/d/1qn8YGoCJy-A-J5HYMJ9ZrGtkxBBXXv3F/view?usp=sharing",
   },
   {
     id: "amazon-ml-challenge-2026",
@@ -66,6 +72,8 @@ export const achievements: Achievement[] = [
     certificateNote:
       "Certificate from Harpreet Kaur, Director – Adobe India Talent Acquisition. Date: 12/08/2024.",
     verifiedBy: "certificate",
+    certificateUrl: "/certificates/adobe-gensolve.png",
+    proofUrl: "https://drive.google.com/file/d/1ayHmk92KJzqC-nZtHEPJdA1BPzwnR0MT/view?usp=sharing",
   },
   {
     id: "flipkart-grid-7",
@@ -79,6 +87,7 @@ export const achievements: Achievement[] = [
     certificateNote:
       "Certificate from Seema Nair, CHRO – Flipkart. Date: 15 August 2025.",
     verifiedBy: "certificate",
+    certificateUrl: "/certificates/flipkart-grid-7.png",
   },
   {
     id: "icpc-regionalist-2024",
@@ -103,6 +112,7 @@ export const achievements: Achievement[] = [
     scale: "National — sponsored by Jane Street, Jump Trading, Citadel, HRT, D.E. Shaw",
     certificateNote: "Certificate from IICPC verified. Rank 301 confirmed.",
     verifiedBy: "certificate",
+    certificateUrl: "/certificates/codefest25-rank301.png",
   },
   {
     id: "error404-hackathon-2024",
@@ -116,6 +126,7 @@ export const achievements: Achievement[] = [
     certificateNote:
       "Certificate of Excellence. Signed by Akshay Srinivas (President), Kevin Madhan (Vice President), Siddharth Premanand (President).",
     verifiedBy: "certificate",
+    certificateUrl: "/certificates/error404-hackathon.png",
   },
   {
     id: "freshers-cup-2024",

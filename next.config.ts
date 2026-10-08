@@ -1,17 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
       },
-    },
+    ],
+    // Optimize local screenshots
+    formats: ["image/webp", "image/avif"],
   },
+  // Server-only modules — never sent to browser
+  serverExternalPackages: [],
+  // Strict mode
+  reactStrictMode: true,
 };
 
 export default nextConfig;
