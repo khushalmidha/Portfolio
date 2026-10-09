@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Download, Mail, ChevronRight } from "lucide-react";
+import { ArrowRight, Download, Mail, ChevronRight, FileText } from "lucide-react";
 import { profile } from "@/lib/content/profile";
 
 export function HeroSection() {
@@ -136,10 +136,10 @@ export function HeroSection() {
             <Link href="/#projects" className="btn btn-primary">
               View Projects <ArrowRight size={15} />
             </Link>
-            <a href={profile.resume} download className="btn btn-secondary">
-              <Download size={15} />
-              Download Resume
-            </a>
+            <Link href="/resume" className="btn btn-secondary">
+              <FileText size={15} />
+              View Resume
+            </Link>
             <a href={`mailto:${profile.contact.email}`} className="btn btn-secondary">
               <Mail size={15} />
               Contact Me

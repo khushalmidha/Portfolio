@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ExternalLink, Github, BookOpen, ImageOff } from "lucide-react";
 import { projects } from "@/lib/content/projects";
 import { getFeaturedRepos } from "@/lib/adapters/github";
+import { ProjectsTabContainer } from "./ProjectsTabContainer";
 
 function BrowserFrame({
   url,
@@ -94,19 +95,19 @@ export async function ProjectsSection() {
     <section id="projects" aria-labelledby="projects-heading" className="section">
       <div className="container-wide">
         {/* Section header */}
-        <div style={{ marginBottom: "4rem" }}>
+        <div style={{ marginBottom: "3rem" }}>
           <div className="section-label">Selected Work</div>
           <h2 id="projects-heading" className="section-heading" style={{ marginBottom: "1rem" }}>
             Projects
           </h2>
-          <p style={{ color: "var(--text-secondary)", fontSize: "1.0625rem", maxWidth: "520px" }}>
-            Three substantial builds — each tackling a real problem with real engineering
-            decisions.
+          <p style={{ color: "var(--text-secondary)", fontSize: "1.0625rem", maxWidth: "600px" }}>
+            Explore flagship full-stack & AI architectures, or browse all 23 repositories across Quant, Machine Learning, Systems, and Web.
           </p>
         </div>
 
-        {/* Project list */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "6rem" }}>
+        <ProjectsTabContainer
+          featuredChildren={
+            <div style={{ display: "flex", flexDirection: "column", gap: "6rem" }}>
           {projects.map((project, i) => {
             const repoKey = project.slug === "iiitlbachat" ? "iiitlbachat" : project.slug;
             const repoData = repoMap[repoKey];
@@ -282,7 +283,9 @@ export async function ProjectsSection() {
               </article>
             );
           })}
-        </div>
+            </div>
+          }
+        />
       </div>
     </section>
   );

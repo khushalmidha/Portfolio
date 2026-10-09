@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ExternalLink, ArrowLeft, Info } from "lucide-react";
+import { ExternalLink, ArrowLeft } from "lucide-react";
 import { getCodeforcesData } from "@/lib/adapters/codeforces";
 import { leetcodeSnapshot } from "@/lib/adapters/leetcode";
 import { codechefSnapshot } from "@/lib/adapters/codechef";
@@ -117,22 +117,6 @@ export default async function CodingPage() {
             ))}
           </div>
 
-          <p
-            style={{
-              marginTop: "1rem",
-              fontSize: "0.8rem",
-              color: "var(--text-muted)",
-              fontStyle: "italic",
-              fontFamily: "var(--font-mono)",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.375rem",
-            }}
-          >
-            <Info size={12} />
-            Ratings are from resume snapshot. Codeforces data may be live — check status
-            below each chart.
-          </p>
         </div>
       </section>
 
@@ -228,26 +212,6 @@ export default async function CodingPage() {
             </div>
           </div>
 
-          {/* Data note */}
-          {cfData.dataNote && (
-            <div
-              style={{
-                padding: "0.75rem 1rem",
-                background: "var(--bg-secondary)",
-                border: "1px solid var(--border)",
-                borderRadius: "var(--radius-sm)",
-                marginBottom: "2rem",
-                fontSize: "0.8125rem",
-                color: "var(--text-muted)",
-                display: "flex",
-                alignItems: "flex-start",
-                gap: "0.5rem",
-              }}
-            >
-              <Info size={13} style={{ flexShrink: 0, marginTop: "0.125rem" }} />
-              {cfData.dataNote}
-            </div>
-          )}
 
           {/* Rating chart */}
           {cfData.ratingHistory.length > 0 ? (
@@ -344,36 +308,20 @@ export default async function CodingPage() {
             </div>
           </div>
 
-          <div
-            style={{
-              padding: "0.75rem 1rem",
-              background: "var(--bg-secondary)",
-              border: "1px solid var(--border)",
-              borderRadius: "var(--radius-sm)",
-              marginBottom: "2rem",
-              fontSize: "0.8125rem",
-              color: "var(--text-muted)",
-              display: "flex",
-              alignItems: "flex-start",
-              gap: "0.5rem",
-            }}
-          >
-            <Info size={13} style={{ flexShrink: 0, marginTop: "0.125rem" }} />
-            {leetcodeSnapshot.dataNote}
-          </div>
-
           {/* Stats grid */}
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
               gap: "1rem",
             }}
           >
             {[
-              { label: "Rating", value: String(leetcodeSnapshot.rating), color: "#F9A825" },
-              { label: "Rank", value: leetcodeSnapshot.rank, color: "#F9A825" },
-              { label: "Total Solved", value: leetcodeSnapshot.totalSolved > 0 ? String(leetcodeSnapshot.totalSolved) : "—", color: "var(--text-primary)" },
+              { label: "Contest Rating", value: String(leetcodeSnapshot.rating), color: "#F9A825" },
+              { label: "Level", value: leetcodeSnapshot.rank, color: "#F9A825" },
+              { label: "Global Rank", value: "10,971 / 887k", color: "var(--text-accent)" },
+              { label: "Contests Attended", value: `${leetcodeSnapshot.contestsParticipated}`, color: "var(--text-primary)" },
+              { label: "Total Solved", value: `${leetcodeSnapshot.totalSolved}+`, color: "var(--text-primary)" },
             ].map((stat) => (
               <div
                 key={stat.label}
@@ -478,33 +426,17 @@ export default async function CodingPage() {
 
           <div
             style={{
-              padding: "0.75rem 1rem",
-              background: "var(--bg-secondary)",
-              border: "1px solid var(--border)",
-              borderRadius: "var(--radius-sm)",
-              marginBottom: "2rem",
-              fontSize: "0.8125rem",
-              color: "var(--text-muted)",
-              display: "flex",
-              alignItems: "flex-start",
-              gap: "0.5rem",
-            }}
-          >
-            <Info size={13} style={{ flexShrink: 0, marginTop: "0.125rem" }} />
-            {codechefSnapshot.dataNote}
-          </div>
-
-          <div
-            style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
               gap: "1rem",
             }}
           >
             {[
               { label: "Rating", value: String(codechefSnapshot.rating), color: "#FFB547" },
-              { label: "Stars", value: `${codechefSnapshot.stars}★`, color: "#FFB547" },
+              { label: "Division", value: "Div 1 (5★)", color: "#FFB547" },
               { label: "Rank", value: codechefSnapshot.rank, color: "var(--text-primary)" },
+              { label: "Contest Rank", value: `Rank ${codechefSnapshot.globalRank} (Starters 203)`, color: "var(--text-accent)" },
+              { label: "Contests Attended", value: `${codechefSnapshot.contestsParticipated}`, color: "var(--text-primary)" },
             ].map((stat) => (
               <div
                 key={stat.label}

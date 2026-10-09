@@ -9,7 +9,7 @@ describe("Adapter Fallbacks and Snapshots", () => {
     assert.strictEqual(leetcodeSnapshot.isLive, false);
     assert.strictEqual(leetcodeSnapshot.username, "khushalmidha");
     assert.strictEqual(typeof leetcodeSnapshot.rating, "number");
-    assert.strictEqual(leetcodeSnapshot.rating, 2137);
+    assert.strictEqual(leetcodeSnapshot.rating, 2139);
     assert.strictEqual(leetcodeSnapshot.rank, "Guardian");
     assert(leetcodeSnapshot.dataNote.length > 20);
     assert(leetcodeSnapshot.source.includes("leetcode.com"));
@@ -19,6 +19,7 @@ describe("Adapter Fallbacks and Snapshots", () => {
     assert.strictEqual(codechefSnapshot.isLive, false);
     assert.strictEqual(codechefSnapshot.username, "codebeast24");
     assert.strictEqual(typeof codechefSnapshot.rating, "number");
+    assert.strictEqual(codechefSnapshot.rating, 2131);
     assert.strictEqual(codechefSnapshot.stars, 5);
     assert.strictEqual(codechefSnapshot.rank, "5★ Rated");
     assert(codechefSnapshot.dataNote.length > 20);

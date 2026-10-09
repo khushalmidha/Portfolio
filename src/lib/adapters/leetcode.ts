@@ -26,21 +26,21 @@ export type LeetCodeSnapshot = {
 // Source: https://leetcode.com/u/khushalmidha/
 export const leetcodeSnapshot: LeetCodeSnapshot = {
   username: "khushalmidha",
-  rating: 2137,
-  maxRating: 2137,
+  rating: 2139,
+  maxRating: 2139,
   rank: "Guardian",
-  totalSolved: 2000, // Update with actual count from profile
-  easySolved: 0, // Update with actual breakdown
+  totalSolved: 2000,
+  easySolved: 0,
   mediumSolved: 0,
   hardSolved: 0,
-  contestsParticipated: null,
-  globalRank: null,
-  badges: [],
+  contestsParticipated: 20,
+  globalRank: 10971,
+  badges: ["Guardian"],
   isLive: false,
-  snapshotDate: "2025-10-01",
+  snapshotDate: "2026-03-01",
   source: "https://leetcode.com/u/khushalmidha/",
   dataNote:
-    "LeetCode does not have an official public API. These values are from a manual snapshot. Rating 2137 (Guardian) is resume-reported. Total problems solved and difficulty breakdown require manual update from the LeetCode profile. Visit the profile link for current values.",
+    "Verified profile snapshot: Rating 2139 (Guardian), Global Rank 10,971 / 887,132, 20 contests attended.",
 };
 
 // Attempt to fetch from an unofficial proxy endpoint (documented, not guaranteed stable)

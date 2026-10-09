@@ -64,6 +64,8 @@ export function Footer() {
             <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
               {[
                 { href: "/#projects", label: "Projects" },
+                { href: "/projects", label: "All Projects (23)" },
+                { href: "/resume", label: "Resume" },
                 { href: "/#experience", label: "Experience" },
                 { href: "/coding", label: "Coding" },
                 { href: "/#achievements", label: "Achievements" },

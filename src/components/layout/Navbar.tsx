@@ -64,16 +64,15 @@ export function Navbar() {
 
           {/* Desktop actions */}
           <div className="hide-mobile" style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginLeft: "auto" }}>
-            <a
-              href={profile.resume}
-              download
+            <Link
+              href="/resume"
               className="btn btn-secondary"
               style={{ padding: "0.5rem 1rem", fontSize: "0.875rem" }}
-              aria-label="Download resume"
+              aria-label="View verified resume"
             >
               <FileText size={14} />
               Resume
-            </a>
+            </Link>
             <button
               onClick={toggle}
               className="btn btn-ghost"
@@ -129,16 +128,15 @@ export function Navbar() {
             ))}
           </nav>
           <div style={{ marginTop: "2rem", paddingTop: "2rem", borderTop: "1px solid var(--border)" }}>
-            <a
-              href={profile.resume}
-              download
+            <Link
+              href="/resume"
               className="btn btn-primary"
               style={{ width: "100%", justifyContent: "center" }}
               onClick={() => setMobileOpen(false)}
             >
               <FileText size={16} />
-              Download Resume
-            </a>
+              View Resume
+            </Link>
           </div>
           <div style={{ marginTop: "auto", paddingTop: "2rem" }}>
             <div style={{ display: "flex", gap: "1rem" }}>

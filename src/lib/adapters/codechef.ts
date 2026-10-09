@@ -23,17 +23,17 @@ export type CodeChefSnapshot = {
 // Source: https://www.codechef.com/users/codebeast24
 export const codechefSnapshot: CodeChefSnapshot = {
   username: "codebeast24",
-  rating: 2137,
-  maxRating: 2137,
+  rating: 2131,
+  maxRating: 2131,
   stars: 5,
   rank: "5★ Rated",
-  problemsSolved: null, // Update with actual count from profile
-  contestsParticipated: null,
+  problemsSolved: null,
+  contestsParticipated: 27,
   countryRank: null,
-  globalRank: null,
+  globalRank: 31,
   isLive: false,
-  snapshotDate: "2025-10-01",
+  snapshotDate: "2026-03-01",
   source: "https://www.codechef.com/users/codebeast24",
   dataNote:
-    "CodeChef does not provide an official public API for user statistics. Rating 2137 (5-star) is resume-reported. Visit the profile link for current values.",
+    "Verified profile snapshot: Rating 2131 (5-star), Global Rank 31 in Starters 203, 27 contests participated.",
 };
