@@ -22,7 +22,8 @@ export const profile = {
     cgpaSource: "Resume",
   },
   contact: {
-    email: "midhakhushal5@gmail.com",
+    email: "khushal@khushalmidha.tech",
+    alternateEmail: "khushalmidha@khushalmidha.tech",
     phone: "+91 90507 40836",
     showPhone: false, // set to true to make phone visible
   },
