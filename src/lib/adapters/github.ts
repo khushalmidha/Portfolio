@@ -30,7 +30,7 @@ type GitHubAPIRepo = {
   topics: string[];
 };
 
-const FEATURED_REPOS = ["MediPulse", "jagrit", "IIITLBachat"];
+const FEATURED_REPOS = ["MediPulse", "jagrit", "IIITLBachat", "Quantdesk", "ThreatGraph"];
 
 function getHeaders(): Record<string, string> {
   const headers: Record<string, string> = {
@@ -89,6 +89,28 @@ const FALLBACK_REPOS: GitHubRepo[] = [
     language: "JavaScript",
     updated_at: "2025-01-01T00:00:00Z",
     topics: ["finance", "ai", "sarvam", "gemini"],
+  },
+  {
+    name: "Quantdesk",
+    description:
+      "Deterministic C++ order book matching engine and algorithmic backtesting dashboard",
+    html_url: "https://github.com/khushalmidha/Quantdesk",
+    stargazers_count: 0,
+    forks_count: 0,
+    language: "C++",
+    updated_at: "2026-07-14T00:00:00Z",
+    topics: ["quantitative-trading", "cpp", "orderbook", "market-making"],
+  },
+  {
+    name: "ThreatGraph",
+    description:
+      "Spatial-temporal cybersecurity threat intelligence engine with GNNs, Transformers, and Kafka",
+    html_url: "https://github.com/khushalmidha/ThreatGraph",
+    stargazers_count: 0,
+    forks_count: 0,
+    language: "Python",
+    updated_at: "2026-09-29T00:00:00Z",
+    topics: ["cybersecurity", "gnn", "transformers", "kafka", "fastapi"],
   },
 ];
 

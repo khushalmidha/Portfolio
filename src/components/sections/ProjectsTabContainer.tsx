@@ -33,7 +33,7 @@ export function ProjectsTabContainer({
           className={`btn ${activeTab === "featured" ? "btn-primary" : "btn-ghost"}`}
           style={{ fontSize: "0.875rem", padding: "0.55rem 1.125rem" }}
         >
-          <Sparkles size={15} /> Flagship Case Studies (3)
+          <Sparkles size={15} /> Flagship Case Studies (5)
         </button>
         <button
           role="tab"

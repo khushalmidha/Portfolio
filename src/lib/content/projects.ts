@@ -348,4 +348,196 @@ export const projects: Project[] = [
       ],
     },
   },
+  {
+    slug: "quantdesk",
+    title: "QuantDesk",
+    tagline: "Deterministic C++ order book & algorithmic backtesting suite",
+    description:
+      "A high-performance algorithmic trading platform with a deterministic C++ matching engine supporting LIMIT, MARKET, IOC, and FOK orders with price-time priority, Avellaneda-Stoikov market making, and an interactive React analytics dashboard for strategy replay.",
+    accentColor: "#F59E0B",
+    liveUrl: "https://quantdesk-mu.vercel.app/",
+    githubUrl: "https://github.com/khushalmidha/Quantdesk",
+    screenshotPath: "/screenshots/quantdesk.png",
+    stack: [
+      "C++20",
+      "CMake",
+      "GoogleTest",
+      "Python",
+      "React",
+      "Quantitative Trading",
+      "FastAPI",
+    ],
+    highlights: [
+      "Deterministic C++ order book & matching engine",
+      "Price-time priority with partial fills & multi-level sweeps",
+      "LIMIT, MARKET, IOC, and FOK order execution",
+      "Avellaneda-Stoikov inventory-based market making algorithm",
+      "Cointegration pairs trading backtester in Python",
+      "Interactive React depth-of-book and strategy replay dashboard",
+      "GoogleTest suite ensuring zero execution drift",
+    ],
+    featured: true,
+    focus: ["engineering", "algorithms", "both"],
+    caseStudy: {
+      overview:
+        "QuantDesk is an institutional-grade quantitative trading backtesting and simulation suite. It pairs a deterministic C++20 limit order book matching engine with a Python quantitative research environment and an interactive React web dashboard for strategy replay, depth-of-book analysis, and performance analytics.",
+      problem:
+        "Standard backtesting libraries written purely in Python suffer from significant execution latency, unrealistic fill assumptions, and execution drift when simulating high-frequency or inventory-sensitive strategies like market making and pairs trading.",
+      contribution:
+        "Architected a native C++20 matching engine implementing price-time priority queues with microsecond event dispatching. Implemented an inventory-aware Avellaneda-Stoikov market maker that dynamically skews bid-ask spreads, and built a full-stack React frontend for historical order replay.",
+      architecture: [
+        {
+          title: "Deterministic C++ Matching Engine",
+          description:
+            "Implemented price-time priority queues for bids and asks using memory-efficient contiguous price buckets. Supports LIMIT, MARKET, IOC (Immediate-or-Cancel), and FOK (Fill-or-Kill) orders with immediate partial fill settlement.",
+        },
+        {
+          title: "Avellaneda-Stoikov Market Making",
+          description:
+            "Implemented the seminal Avellaneda-Stoikov optimal quoting model. As inventory accumulates in either direction, reservation prices skew quotes away from accumulating adverse inventory while maintaining target spread capture.",
+        },
+        {
+          title: "Statistical Arbitrage & Cointegration",
+          description:
+            "Engineered a pairs trading pipeline in Python utilizing Johansen cointegration tests, rolling z-score spread calculations, and volatility-scaled half-life rebalancing thresholds.",
+        },
+        {
+          title: "Interactive Strategy Replay Dashboard",
+          description:
+            "Built a React dashboard displaying real-time depth of book heatmaps, cumulative PnL trajectories, drawdown charts, and per-fill execution slippage logs.",
+        },
+      ],
+      decisions: [
+        {
+          decision: "C++20 for core execution engine instead of Python",
+          rationale:
+            "Python backtesting introduces substantial runtime overhead and cannot accurately model deterministic microsecond execution without language runtime artifacts.",
+          tradeoff:
+            "Requires cross-language bindings and CMake build pipelines compared to an all-Python stack.",
+        },
+        {
+          decision: "Avellaneda-Stoikov quoting over naive fixed spreads",
+          rationale:
+            "Fixed-spread market makers suffer heavy adverse selection during directional price shocks. Dynamic reservation pricing protects capital by penalizing inventory build-up.",
+          tradeoff:
+            "Requires accurate continuous estimation of volatility (gamma) and arrival intensity (kappa).",
+        },
+      ],
+      challenges: [
+        {
+          challenge: "Ensuring 100% deterministic execution across test runs",
+          solution:
+            "Enforced explicit monotonic timestamp indexing, isolated PRNG seeding, and automated GoogleTest suites verifying exact order book state parity across runs.",
+        },
+        {
+          challenge: "Handling multi-level liquidity sweeps without allocation bottlenecks",
+          solution:
+            "Designed a recursive price-level decrement loop that updates book volume in-place before emitting execution reports.",
+        },
+      ],
+      results: [
+        "Sub-microsecond order matching on synthetic and historical book feeds",
+        "Deterministic order execution validated by comprehensive GoogleTest coverage",
+        "Live interactive web dashboard deployed at https://quantdesk-mu.vercel.app/",
+        "Supports full order lifecycle (LIMIT, MARKET, IOC, FOK) with partial fill logic",
+      ],
+    },
+  },
+  {
+    slug: "threatgraph",
+    title: "ThreatGraph",
+    tagline: "Spatial-temporal threat intelligence with GNNs & Transformers",
+    description:
+      "A real-time cybersecurity threat detection and automated incident response platform on AWS EC2, streaming 10,000+ network flows/sec via Kafka through hybrid Temporal GNN + Transformer models (0.91 F1-score) with interactive 3D Force-Graph attack topologies and RAG-driven MITRE ATT&CK runbooks.",
+    accentColor: "#A855F7",
+    liveUrl: "http://threatgraph.duckdns.org/",
+    githubUrl: "https://github.com/khushalmidha/ThreatGraph",
+    screenshotPath: "/screenshots/threatgraph.png",
+    stack: [
+      "Python",
+      "PyTorch",
+      "GNNs",
+      "FastAPI",
+      "Kafka",
+      "PostgreSQL",
+      "NetworkX",
+      "FAISS",
+      "AWS EC2",
+      "React",
+    ],
+    highlights: [
+      "Spatial-temporal threat detection engine fusing GNNs & Transformers",
+      "Streams 10,000+ network flows/sec through Kafka on AWS EC2",
+      "0.91 F1-Score & 92% PR-AUC on imbalanced attack vectors",
+      "RAG-driven AI SOC investigations mapped to MITRE ATT&CK runbooks",
+      "Interactive 3D Force-Graph attack topology visualization",
+      "Automated Zero-Trust containment via host micro-isolation",
+    ],
+    featured: true,
+    focus: ["engineering", "algorithms", "both"],
+    caseStudy: {
+      overview:
+        "ThreatGraph is an enterprise-scale threat intelligence and automated incident response system deployed on AWS EC2. It combines high-throughput Kafka streaming with hybrid Temporal Graph Neural Networks (GNNs) and Transformers to detect stealthy lateral movement across network hosts with sub-second latency.",
+      problem:
+        "Traditional Security Information and Event Management (SIEM) tools evaluate incoming log entries as isolated tabular events. They frequently miss sophisticated advanced persistent threats (APTs) that execute low-and-slow lateral movement across distributed enterprise subnets.",
+      contribution:
+        "Engineered an end-to-end telemetry pipeline processing 10k+ network flows/sec via Kafka on AWS EC2. Developed a spatial-temporal GNN model achieving a 0.91 F1-score on imbalanced attack datasets and integrated a RAG-powered MITRE ATT&CK SOC analyst agent for automated host containment.",
+      architecture: [
+        {
+          title: "Spatial-Temporal GNN + Transformer Engine",
+          description:
+            "Constructs dynamic temporal graphs where nodes represent IP addresses/ports and directed edges encode network flows. Combines Graph Convolutional Networks (GCNs) with self-attention to capture multi-hop lateral movement patterns.",
+        },
+        {
+          title: "High-Throughput Kafka Stream Pipeline",
+          description:
+            "Consumes 10,000+ network flow records per second from distributed sensors on AWS EC2, dispatching batched subgraphs to FastAPI inference workers with sub-second response times.",
+        },
+        {
+          title: "RAG MITRE ATT&CK Analyst",
+          description:
+            "Embeds MITRE ATT&CK enterprise techniques into FAISS vector storage. When an anomalous graph pattern is detected, the LLM agent retrieves relevant tactics, techniques, and remediation procedures.",
+        },
+        {
+          title: "3D Force-Graph Topology & Containment",
+          description:
+            "Visualizes enterprise network graphs in real time. Security operators can inspect compromise trajectories and trigger automated Zero-Trust host isolation via firewall API triggers.",
+        },
+      ],
+      decisions: [
+        {
+          decision: "Graph Neural Networks over traditional tabular tree models",
+          rationale:
+            "Tabular classifiers miss relational topology across connected hosts. GNNs aggregate contextual neighbor embeddings across multiple network hops to surface coordinated intrusions.",
+          tradeoff:
+            "Higher computational footprint during dynamic subgraph construction compared to tabular inference.",
+        },
+        {
+          decision: "Zero-Trust automated host micro-isolation",
+          rationale:
+            "Human SOC response times average several hours, during which ransomware spreads laterally. Automated quarantine upon high-confidence detection halts spread in milliseconds.",
+          tradeoff:
+            "Requires stringent precision thresholds (PR-AUC 92%) to avoid accidental disruption of legitimate enterprise operations.",
+        },
+      ],
+      challenges: [
+        {
+          challenge: "Handling severe class imbalance in intrusion datasets (<0.1% attacks)",
+          solution:
+            "Utilized focal loss optimization and dynamic temporal subgraph sampling to ensure the model learned distinct anomaly representations without false-alarm saturation.",
+        },
+        {
+          challenge: "Sub-second graph update latency under 10k flows/sec",
+          solution:
+            "Maintained incremental sliding-window neighborhood buffers in Redis rather than re-computing global topology matrices on every packet.",
+        },
+      ],
+      results: [
+        "10,000+ network flows per second sustained throughput on AWS EC2",
+        "0.91 F1-Score and 92% PR-AUC on benchmark intrusion scenarios",
+        "Sub-second alert dispatch with RAG MITRE ATT&CK incident runbooks",
+        "Live deployment running at http://threatgraph.duckdns.org/",
+      ],
+    },
+  },
 ];

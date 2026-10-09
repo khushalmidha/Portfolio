@@ -144,7 +144,7 @@ export default async function ProjectCaseStudy({
                 <div className="browser-dot" style={{ background: "#FFBD2E" }} />
                 <div className="browser-dot" style={{ background: "#28CA41" }} />
                 <div className="browser-url">
-                  {project.liveUrl.replace("https://", "")}
+                  {project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}
                 </div>
               </div>
               <div style={{ position: "relative", aspectRatio: "16/10", background: "var(--bg-secondary)" }}>

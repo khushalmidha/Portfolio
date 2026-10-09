@@ -128,7 +128,7 @@ export async function ProjectsSection() {
                 <div style={{ order: isEven ? 0 : 1 }}>
                   {project.screenshotPath ? (
                     <BrowserFrame
-                      url={project.liveUrl.replace("https://", "")}
+                      url={project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}
                       screenshotPath={project.screenshotPath}
                       title={project.title}
                       href={project.liveUrl}

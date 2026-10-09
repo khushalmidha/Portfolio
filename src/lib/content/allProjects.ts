@@ -88,12 +88,14 @@ export const allProjects: CatalogueProject[] = [
     language: "Python",
     tech: ["Python", "PyTorch", "GNNs", "FastAPI", "Kafka", "PostgreSQL", "FAISS", "AWS EC2"],
     githubUrl: "https://github.com/khushalmidha/ThreatGraph",
+    liveUrl: "http://threatgraph.duckdns.org/",
     featured: true,
+    caseStudySlug: "threatgraph",
     highlight: "10k flows/sec • 0.91 F1-Score • MITRE ATT&CK RAG",
   },
   {
     id: "quantdesk",
-    name: "Quantdesk",
+    name: "QuantDesk",
     tagline: "C++ algorithmic trading order book & backtesting engine",
     description:
       "Deterministic C++ order book & matching engine with price-time priority, partial fills, LIMIT/MARKET/IOC/FOK orders, Avellaneda-Stoikov market making, and React analytics dashboard.",
@@ -104,6 +106,7 @@ export const allProjects: CatalogueProject[] = [
     githubUrl: "https://github.com/khushalmidha/Quantdesk",
     liveUrl: "https://quantdesk-mu.vercel.app/",
     featured: true,
+    caseStudySlug: "quantdesk",
     highlight: "Deterministic Engine • Avellaneda-Stoikov • C++20",
   },
   {
