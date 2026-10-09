@@ -50,7 +50,7 @@ export function Navbar() {
         <div className="container-wide" style={{ display: "flex", alignItems: "center", width: "100%", gap: "2rem" }}>
           {/* Logo */}
           <Link href="/" className="nav-logo" onClick={() => setMobileOpen(false)}>
-            K<span>.</span>Midha
+            Khushal Midha
           </Link>
 
           {/* Desktop links */}

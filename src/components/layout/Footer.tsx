@@ -33,7 +33,7 @@ export function Footer() {
                 marginBottom: "0.75rem",
               }}
             >
-              K<span style={{ color: "var(--accent)" }}>.</span>Midha
+              Khushal Midha
             </div>
             <p
               style={{
