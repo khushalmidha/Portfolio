@@ -23,6 +23,7 @@ export const profile = {
   },
   contact: {
     email: "khushal@khushalmidha.tech",
+    personalEmail: "midhakhushal5@gmail.com",
     alternateEmail: "khushalmidha@khushalmidha.tech",
     phone: "+91 90507 40836",
     showPhone: false, // set to true to make phone visible

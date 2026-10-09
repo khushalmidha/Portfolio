@@ -253,7 +253,7 @@ export const projects: Project[] = [
     description:
       "A multilingual personal and family finance platform with voice expense entry (Sarvam AI), collaborative expense circles, receipt extraction, anomaly detection, and an AI finance chatbot.",
     accentColor: "#A3E6C5",
-    liveUrl: "https://iiitl-bachat.vercel.app/login",
+    liveUrl: "https://iiitl-bachat.vercel.app/",
     githubUrl: "https://github.com/khushalmidha/IIITLBachat",
     screenshotPath: "/screenshots/iiitlbachat.png",
     stack: [
@@ -344,7 +344,7 @@ export const projects: Project[] = [
         "Collaborative family expense circles with split tracking",
         "Overspend anomaly detection against weekly budget baselines",
         "Finance chatbot with read-only access to personal expense history",
-        "Note: the app is accessible at the login page; no authentication bypass",
+        "Note: the app is accessible at https://iiitl-bachat.vercel.app/",
       ],
     },
   },

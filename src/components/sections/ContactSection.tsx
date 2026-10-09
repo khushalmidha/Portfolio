@@ -5,15 +5,21 @@ import { Copy, Check, Mail, Github, Linkedin, ExternalLink, FileText } from "luc
 import { profile } from "@/lib/content/profile";
 
 export function ContactSection() {
-  const [copied, setCopied] = useState(false);
+  const [copiedPrimary, setCopiedPrimary] = useState(false);
+  const [copiedPersonal, setCopiedPersonal] = useState(false);
 
-  const copyEmail = async () => {
+  const copyEmail = async (email: string, isPrimary: boolean) => {
     try {
-      await navigator.clipboard.writeText(profile.contact.email);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      await navigator.clipboard.writeText(email);
+      if (isPrimary) {
+        setCopiedPrimary(true);
+        setTimeout(() => setCopiedPrimary(false), 2000);
+      } else {
+        setCopiedPersonal(true);
+        setTimeout(() => setCopiedPersonal(false), 2000);
+      }
     } catch {
-      // Fallback: show the email clearly
+      // Fallback
     }
   };
 
@@ -58,64 +64,129 @@ export function ContactSection() {
             boxShadow: "var(--shadow-card)",
           }}
         >
-          {/* Email primary */}
-          <div style={{ marginBottom: "2rem" }}>
-            <div
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.7rem",
-                textTransform: "uppercase",
-                letterSpacing: "0.08em",
-                color: "var(--text-muted)",
-                marginBottom: "0.625rem",
-              }}
-            >
-              Primary Contact
-            </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.75rem",
-                flexWrap: "wrap",
-              }}
-            >
-              <a
-                href={`mailto:${profile.contact.email}`}
+          {/* Emails */}
+          <div style={{ marginBottom: "2rem", display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+            {/* Primary Domain Email */}
+            <div>
+              <div
                 style={{
                   fontFamily: "var(--font-mono)",
-                  fontSize: "1rem",
-                  fontWeight: 500,
-                  color: "var(--text-accent)",
-                  textDecoration: "none",
-                  flex: 1,
-                  minWidth: "200px",
+                  fontSize: "0.7rem",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                  color: "var(--text-muted)",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                Domain Email (Primary)
+              </div>
+              <div
+                style={{
                   display: "flex",
                   alignItems: "center",
-                  gap: "0.5rem",
+                  gap: "0.75rem",
+                  flexWrap: "wrap",
                 }}
-                aria-label="Send email"
               >
-                <Mail size={16} />
-                {profile.contact.email}
-              </a>
-              <button
-                onClick={copyEmail}
-                className="btn btn-secondary"
-                style={{ padding: "0.5rem 0.875rem", fontSize: "0.8125rem" }}
-                aria-label={copied ? "Email copied!" : "Copy email address"}
-              >
-                {copied ? (
-                  <>
-                    <Check size={13} /> Copied!
-                  </>
-                ) : (
-                  <>
-                    <Copy size={13} /> Copy
-                  </>
-                )}
-              </button>
+                <a
+                  href={`mailto:${profile.contact.email}`}
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "0.9375rem",
+                    fontWeight: 500,
+                    color: "var(--text-accent)",
+                    textDecoration: "none",
+                    flex: 1,
+                    minWidth: "200px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                  }}
+                  aria-label="Send email to primary address"
+                >
+                  <Mail size={16} />
+                  {profile.contact.email}
+                </a>
+                <button
+                  onClick={() => copyEmail(profile.contact.email, true)}
+                  className="btn btn-secondary"
+                  style={{ padding: "0.45rem 0.8rem", fontSize: "0.8125rem" }}
+                  aria-label={copiedPrimary ? "Email copied!" : "Copy primary email"}
+                >
+                  {copiedPrimary ? (
+                    <>
+                      <Check size={13} /> Copied!
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={13} /> Copy
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
+
+            {/* Personal / Gmail */}
+            {profile.contact.personalEmail && (
+              <div>
+                <div
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "0.7rem",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.08em",
+                    color: "var(--text-muted)",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  Personal Email
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.75rem",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <a
+                    href={`mailto:${profile.contact.personalEmail}`}
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.9375rem",
+                      fontWeight: 500,
+                      color: "var(--text-secondary)",
+                      textDecoration: "none",
+                      flex: 1,
+                      minWidth: "200px",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                    }}
+                    aria-label="Send email to personal Gmail"
+                  >
+                    <Mail size={16} />
+                    {profile.contact.personalEmail}
+                  </a>
+                  <button
+                    onClick={() => copyEmail(profile.contact.personalEmail, false)}
+                    className="btn btn-secondary"
+                    style={{ padding: "0.45rem 0.8rem", fontSize: "0.8125rem" }}
+                    aria-label={copiedPersonal ? "Email copied!" : "Copy personal email"}
+                  >
+                    {copiedPersonal ? (
+                      <>
+                        <Check size={13} /> Copied!
+                      </>
+                    ) : (
+                      <>
+                        <Copy size={13} /> Copy
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="divider" style={{ marginBottom: "2rem" }} />

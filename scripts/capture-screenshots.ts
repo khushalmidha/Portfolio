@@ -31,11 +31,10 @@ const PROJECTS = [
   },
   {
     slug: "iiitlbachat",
-    // Captures the login page honestly — no auth bypass
-    url: "https://iiitl-bachat.vercel.app/login",
+    url: "https://iiitl-bachat.vercel.app/",
     filename: "iiitlbachat.png",
-    waitFor: "networkidle",
-    timeout: 15000,
+    waitFor: "domcontentloaded",
+    timeout: 20000,
   },
 ] as const;
 
