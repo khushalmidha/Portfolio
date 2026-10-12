@@ -50,7 +50,7 @@ const RESUME_TRACKS: ResumeTrack[] = [
     pdfPath: "/resume/MLresume.pdf",
     badge: "AI & ML",
     summary:
-      "Highlights PyTorch, GNNs, Transformers, XGBoost, ThreatGraph incident response, and Amazon ML School credentials.",
+      "Highlights PyTorch, Multimodal Two-Tower Recommenders (ResNet-50 + FAISS), GNNs, Transformers, LambdaMART, ThreatGraph, and Jagrit.",
   },
   {
     id: "quant",

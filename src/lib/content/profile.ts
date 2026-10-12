@@ -11,6 +11,7 @@ export const profile = {
   lookingFor: [
     "SDE roles",
     "SWE roles",
+    "ML roles",
     "Backend engineering",
     "Quant developer opportunities",
   ],
@@ -18,11 +19,13 @@ export const profile = {
     institution: "Indian Institute of Information Technology, Lucknow",
     degree: "B.Tech in Computer Science and Artificial Intelligence",
     period: "August 2023 – July 2027",
-    cgpa: "8.72 / 10",
+    cgpa: "8.7/10",
     cgpaSource: "Resume",
   },
   contact: {
     email: "khushalmidha24@gmail.com",
+    personalEmail: "midhakhushal5@gmail.com",
+    alternateEmail: "khushal@khushalmidha.tech",
     phone: "+91 90507 40836",
     showPhone: false, // set to true to make phone visible
   },
